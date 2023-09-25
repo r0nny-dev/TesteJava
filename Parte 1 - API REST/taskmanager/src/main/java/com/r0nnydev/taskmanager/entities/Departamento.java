@@ -29,6 +29,14 @@ public class Departamento implements Serializable{
 	@OneToMany(mappedBy = "departamento")
 	private List<Tarefa> tarefas = new ArrayList<>();
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
