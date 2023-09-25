@@ -20,7 +20,7 @@ import com.r0nnydev.taskmanager.services.PessoaService;
 import com.r0nnydev.taskmanager.services.TarefaService;
 
 @Configuration
-@Profile("dev")
+@Profile("test")
 public class TestConfig implements CommandLineRunner {
 	
 	
