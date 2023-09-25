@@ -106,6 +106,9 @@ public class TarefaService {
 	}
 	
 	public Pessoa getPessoa(TarefaDTO dto) {
+		if (dto.getIdPessoaAlocada() == null)
+			return null;
+		
 		Optional<Pessoa> pessoaO = pessoaService.findById(dto.getIdPessoaAlocada());
 		
 		if (pessoaO.isPresent())

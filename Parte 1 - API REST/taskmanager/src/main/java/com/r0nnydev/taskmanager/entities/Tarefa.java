@@ -34,7 +34,7 @@ public class Tarefa implements Serializable {
 	@JsonIgnore
 	private Departamento departamento;
 
-	@ManyToOne(optional = true, cascade = CascadeType.PERSIST)
+	@ManyToOne(optional = true)
 	@JoinColumn(name = "idPessoa")
 	@JsonIgnore
 	private Pessoa pessoaAlocada;
