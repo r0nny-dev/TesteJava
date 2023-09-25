@@ -20,7 +20,7 @@ import com.r0nnydev.taskmanager.services.PessoaService;
 import com.r0nnydev.taskmanager.services.TarefaService;
 
 @Configuration
-@Profile("test")
+@Profile("dev")
 public class TestConfig implements CommandLineRunner {
 	
 	
@@ -34,14 +34,10 @@ public class TestConfig implements CommandLineRunner {
 	private PessoaService pessoaService;
 	
 	@Autowired
-	private PessoaRepository pessoaRepository;
-
-	@Autowired
 	private TarefaService tarefaService;
 
 	@Override
 	public void run(String... args) throws Exception {
-
 		// Departamento Mock
 		List<DepartamentoDTO> listDepartamentoDTO = new ArrayList<>();
 		listDepartamentoDTO.add(new DepartamentoDTO("Financeiro"));
@@ -61,7 +57,7 @@ public class TestConfig implements CommandLineRunner {
 		listPessoasDTO.add(new PessoaDTO("Joaquim", 1L));
 
 		pessoaService.saveAll(listPessoasDTO);
-		
+
 		// Tarefas Mock
 		List<TarefaDTO> listTarefasDTO = new ArrayList<>();
 		listTarefasDTO.add(new TarefaDTO(1001L, "Validar NF Janeiro", "Validar notas recebidas no mês de Janeiro",
