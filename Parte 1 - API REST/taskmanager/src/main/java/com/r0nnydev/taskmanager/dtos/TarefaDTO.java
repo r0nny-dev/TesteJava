@@ -2,29 +2,38 @@ package com.r0nnydev.taskmanager.dtos;
 
 import java.time.LocalDate;
 
-import com.r0nnydev.taskmanager.entities.Departamento;
-import com.r0nnydev.taskmanager.entities.Pessoa;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class TarefaDTO {
 	private Long id;
+	
+	@NotBlank
 	private String titulo;
+	
+	@NotBlank
 	private String descricao;
+	
+	@NotNull
 	private LocalDate prazo;
+	
+	@NotNull
 	private Integer duracao;
 	private Boolean finalizado;
-	private Pessoa pessoaAlocada;
-	private Departamento departamento;
+	
+	private Long idPessoaAlocada;
+	private Long idDepartamento;
 
 	public TarefaDTO(Long id, String titulo, String descricao, LocalDate prazo, Integer duracao, Boolean finalizado,
-			Departamento departamento, Pessoa pessoaAlocada) {
+			Long idDepartamento, Long idPessoaAlocada) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.prazo = prazo;
 		this.duracao = duracao;
 		this.finalizado = finalizado;
-		this.departamento = departamento;
-		this.pessoaAlocada = pessoaAlocada;
+		this.idDepartamento = idDepartamento;
+		this.idPessoaAlocada = idPessoaAlocada;
 	}
 
 	public Long getId() {
@@ -75,20 +84,19 @@ public class TarefaDTO {
 		this.finalizado = finalizado;
 	}
 
-	public Pessoa getPessoaAlocada() {
-		return pessoaAlocada;
+	public Long getIdPessoaAlocada() {
+		return idPessoaAlocada;
 	}
 
-	public void setPessoaAlocada(Pessoa pessoaAlocada) {
-		this.pessoaAlocada = pessoaAlocada;
+	public void setIdPessoaAlocada(Long idPessoaAlocada) {
+		this.idPessoaAlocada = idPessoaAlocada;
 	}
 
-	public Departamento getDepartamento() {
-		return departamento;
+	public Long getIdDepartamento() {
+		return idDepartamento;
 	}
 
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
+	public void setIdDepartamento(Long idDepartamento) {
+		this.idDepartamento = idDepartamento;
 	}
-	
 }

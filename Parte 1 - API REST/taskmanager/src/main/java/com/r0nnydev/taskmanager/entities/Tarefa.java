@@ -3,6 +3,9 @@ package com.r0nnydev.taskmanager.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,10 +16,10 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_tarefas")
-public class Tarefa implements Serializable{
-	
+public class Tarefa implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,12 +29,14 @@ public class Tarefa implements Serializable{
 	private Integer duracao;
 	private Boolean finalizado;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idDepartamento")
+	@JsonIgnore
 	private Departamento departamento;
-	
-	@ManyToOne(optional = true)
+
+	@ManyToOne(optional = true, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idPessoa")
+	@JsonIgnore
 	private Pessoa pessoaAlocada;
 
 	public String getTitulo() {
@@ -97,6 +102,5 @@ public class Tarefa implements Serializable{
 	public void setPessoaAlocada(Pessoa pessoaAlocada) {
 		this.pessoaAlocada = pessoaAlocada;
 	}
-	
-	
+
 }
