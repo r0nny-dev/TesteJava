@@ -65,39 +65,33 @@ public class TestConfig implements CommandLineRunner {
 		// Tarefas Mock
 		List<TarefaDTO> listTarefasDTO = new ArrayList<>();
 		listTarefasDTO.add(new TarefaDTO(1001L, "Validar NF Janeiro", "Validar notas recebidas no mês de Janeiro",
-				LocalDate.of(2022, 2, 15), 14, true, departamentoRepository.getReferenceById(1L),
-				pessoaRepository.getReferenceById(1L)));
+				LocalDate.of(2022, 2, 15), 14, true, 1L,1L));
 
 		listTarefasDTO.add(new TarefaDTO(1002L, "Bug 352", "Corrigir bug 352 na versão 1.25", LocalDate.of(2022, 5, 10), 25,
-				false, departamentoRepository.getReferenceById(3L), null));
+				false, 3L, null));
 
 		listTarefasDTO.add(new TarefaDTO(1003L, "Liberação da versão 1.24", "Disponibilizar pacote para testes",
-				LocalDate.of(2022, 2, 2), 2, false, departamentoRepository.getReferenceById(3L),
-				pessoaRepository.getReferenceById(3L)));
+				LocalDate.of(2022, 2, 2), 2, false, 3L,3L));
 
 		listTarefasDTO.add(new TarefaDTO(1004L, "Reunião A", "Reunião com cliente A para apresentação do produto",
-				LocalDate.of(2022, 2, 5), 5, false, departamentoRepository.getReferenceById(2L), null));
+				LocalDate.of(2022, 2, 5), 5, false, 2L, null));
 
-		listTarefasDTO.add(new TarefaDTO(1005L, "Reunião final", "Fechamento contrato", LocalDate.of(2022, 3, 28), 6, false,
-				departamentoRepository.getReferenceById(2L), null));
+		listTarefasDTO.add(new TarefaDTO(1005L, "Reunião final", "Fechamento contrato", LocalDate.of(2022, 3, 28), 6, false,2L, null));
 		
 		listTarefasDTO.add(new TarefaDTO(1006L, "Pagamento 01/2022", "Realizar pagamento dos fornecedores", LocalDate.of(2022, 1, 31),
-						6, true, departamentoRepository.getReferenceById(1L), pessoaRepository.getReferenceById(1L)));
+						6, true, 1L, 1L));
 		
 		listTarefasDTO.add(new TarefaDTO(1007L, "Bug 401", "Corrigir bug 401 na versão 1.20", LocalDate.of(2022, 2, 1), 2,
-				true, departamentoRepository.getReferenceById(3L), pessoaRepository.getReferenceById(4L)));
+				true, 3L, 4L));
 		
 		listTarefasDTO.add(new TarefaDTO(1008L, "Bug 399", "Corrigir bug 399 na versão 1.20", LocalDate.of(2022, 1, 28), 6,
-				true, departamentoRepository.getReferenceById(3L), pessoaRepository.getReferenceById(5L)));
+				true, 3L, 5L));
 		
 		listTarefasDTO.add(new TarefaDTO(1009L, "Reunião B", "Reunião com cliente B para apresentação do produto",
-				LocalDate.of(2022, 1, 31), 5, true, departamentoRepository.getReferenceById(2L),
-				pessoaRepository.getReferenceById(2L)));
+				LocalDate.of(2022, 1, 31), 5, true, 2L,2L));
 		
 		listTarefasDTO.add(new TarefaDTO(1010L, "Validar NF Fevereiro", "Validar notas recebidas no mês de Fevereiro",
-				LocalDate.of(2022, 3, 15), 14, false, departamentoRepository.getReferenceById(1L),
-				pessoaRepository.getReferenceById(6L)));
-	
+				LocalDate.of(2022, 3, 15), 14, false, 1L,6L));
 	
 		tarefaService.saveAll(listTarefasDTO);
 	}
