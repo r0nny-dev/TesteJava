@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,9 +29,11 @@ public class Pessoa implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "idDepartamento")
+	@JsonIgnore
 	private Departamento departamento;
 	
 	@OneToMany(mappedBy = "pessoaAlocada")
+	@JsonIgnore
 	private List<Tarefa> tarefas = new ArrayList<>();
 	
 	public Long getId() {

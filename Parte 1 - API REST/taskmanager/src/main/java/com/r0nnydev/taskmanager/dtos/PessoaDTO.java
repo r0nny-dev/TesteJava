@@ -1,13 +1,16 @@
 package com.r0nnydev.taskmanager.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class PessoaDTO {
-	private String nome; 
-	private Integer totalHorasGastas;
-	private String departamento; 
+
+	@NotBlank
+	private String nome;
 	
-	private Long idDepartamento;
-	
+	@NotNull
+	private Long idDepartamento; 
+		
 	public Long getIdDepartamento() {
 		return idDepartamento;
 	}
@@ -29,18 +32,4 @@ public class PessoaDTO {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getDepartamento() {
-		return departamento;
-	}
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
-	public Integer getTotalHorasGastas() {
-		return totalHorasGastas;
-	}
-	public void setTotalHorasGastas(Integer horasGastas) {
-		this.totalHorasGastas = horasGastas;
-	}
-	
-	
 }
